@@ -1,0 +1,23 @@
+{
+  "name": "gogp",
+  "version": "0.0.0",
+  "description": "Gog Prototype",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "test command"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shock/gogp.git"
+  },
+  "author": "WDD",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shock/gogp/issues"
+  },
+  "homepage": "https://github.com/shock/gogp#readme"
+}
