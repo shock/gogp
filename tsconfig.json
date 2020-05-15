@@ -1,0 +1,79 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": false,
+    "target": "es5",
+    "downlevelIteration": true,
+    "importHelpers": true,
+    "sourceMap": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "jsx": "react",
+    "allowJs": false,
+    "checkJs": false,
+    "lib": [
+      "dom",
+      "es2015",
+      "es2016",
+      "es2017",
+      "esnext"
+    ],
+    "forceConsistentCasingInFileNames": true,
+    "experimentalDecorators": true,
+    "noImplicitAny": false,
+    "noUnusedParameters": false,
+    "noImplicitReturns": false,
+    "noImplicitThis": false,
+    "noUnusedLocals": false,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "suppressImplicitAnyIndexErrors": true,
+    "outDir": "./public/dist",
+    "baseUrl": ".",
+    "paths": {
+      "blocks/*": [
+        "client/blocks/*"
+      ],
+      "components/*": [
+        "client/components/*"
+      ],
+      "layout": [
+        "client/layout/index.ts"
+      ],
+      "layout/*": [
+        "client/layout/*"
+      ],
+      "lib/*": [
+        "client/lib/*"
+      ],
+      "scenes/*": [
+        "client/scenes/*"
+      ],
+      "router": [
+        "client/router/index.ts"
+      ],
+      "router/*": [
+        "client/router/*"
+      ],
+      "state": [
+        "client/state/index.ts"
+      ],
+      "state/*": [
+        "client/state/*"
+      ],
+      "models/*": [
+        "client/models/*"
+      ],
+      "test/*": [
+        "client/test/*"
+      ]
+    }
+  },
+  "include": [
+    "./client/**/*.ts",
+    "./client/**/*.tsx",
+    "./client/**/*.types.ts"
+  ],
+  "exclude": [
+    "node_modules",
+  ]
+}

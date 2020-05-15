@@ -61,6 +61,7 @@ coverage
 
 # Lets ignore specific files in the public folder for right now until we decide what we want in there exactly.
 public/_index.html
+public/index.html
 public/dist/
 *.bacpac
 docker.env
