@@ -38,6 +38,13 @@ function isWatchingHappyStylesPlugins(loaders) {
   return loaders;
 }
 
+let cleanerConfig = {};
+if (!config.enabled.watcher ) {
+  cleanerConfig.cleanOnceBeforeBuildPatterns = [config.paths.dist];
+} else {
+  cleanerConfig.cleanOnceBeforeBuildPatterns = [];
+}
+
 let webpackConfig = {
   context: config.paths.root,
 
@@ -141,13 +148,7 @@ let webpackConfig = {
       workers: ForkTsCheckerPlugin.ONE_CPU,
     }),
     // Removes files from public/dist directory before build
-    new CleanWebpackPlugin({
-      cleanBeforeEveryBuildPatterns: [config.paths.dist]
-    }),
-    // new CleanWebpackPlugin([config.paths.dist], {
-    //   root: config.paths.root,
-    //   verbose: false,
-    // }),
+    new CleanWebpackPlugin( cleanerConfig ),
     new HappyPack({
       id: 'ts',
       threadPool: happyThreadPool,
