@@ -24,6 +24,6 @@ import { FormationForm } from 'components/formation_form';
 // );
 
 ReactDOM.render(
-  <FormationForm/>,
+  <FormationForm value='change me' />,
   document.getElementById('root')
 );

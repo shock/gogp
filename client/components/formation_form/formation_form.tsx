@@ -1,12 +1,24 @@
 import * as React from 'react';
 
-import { IFormationFormProps } from './formation_form.types';
+import { FormationFormProps, FormationFormState } from './formation_form.types';
 
-class FormationForm extends React.Component<{}, IFormationFormProps> {
+
+// import * as React from “react”
+// interface WelcomeProps {
+//  name?: string, // Change the required prop to an optional prop.
+// }
+// const Welcome: React.SFC<WelcomeProps> = (props) => {
+//  return <h1>Hello, {props.name}</h1>;
+// }
+// Welcome.defaultProps = {
+//  name: “Guest User”, // This value is adopted when name prop is omitted.
+// }
+
+class FormationForm extends React.Component<FormationFormProps, FormationFormState> {
   constructor(props) {
     super(props);
     this.state = {
-      value: ''
+      value: props.value
     };
 
     this.handleChange = this.handleChange.bind(this);

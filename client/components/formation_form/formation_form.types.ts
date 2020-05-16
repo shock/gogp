@@ -2,6 +2,10 @@
  * External dependencies
  */
 
-export interface IFormationFormProps {
+export interface FormationFormProps {
+  value?: string;
+}
+
+export interface FormationFormState {
   value: string;
 }
