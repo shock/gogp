@@ -22,8 +22,9 @@ import { FormationForm } from 'components/formation_form';
 //   <HotReload store={store} />,
 //   document.getElementById('root'),
 // );
-
 ReactDOM.render(
-  <FormationForm value='change me' />,
+  <React.StrictMode>
+    <FormationForm value='change me' />,
+  </React.StrictMode>,
   document.getElementById('root')
 );
