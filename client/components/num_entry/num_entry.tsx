@@ -14,11 +14,20 @@ class NumEntryBase extends React.Component<NumEntryProps, NumEntryState> {
   }
 
   componentWillMount() {
-    this.props.dispatchUpdateField('0');
+    this.updateValue('0');
   }
 
   handleChange(event) {
-    this.props.dispatchUpdateField(event.target.value);
+    this.updateValue(event.target.value);
+  }
+
+  updateValue(value) {
+    let val = parseFloat(value);
+    if (this.state && this.state.percentage) {
+
+    }
+    if( isNaN(val) ) { val = 0; }
+    this.props.dispatchUpdateField(''+val);
   }
 
   handleSubmit(event) {
@@ -28,7 +37,10 @@ class NumEntryBase extends React.Component<NumEntryProps, NumEntryState> {
 
   render() {
     return (
-      <input type="text" value={this.props.value} onChange={this.handleChange} />
+      <div className="NumEntry">
+        <input type="text" value={this.props.value} onChange={this.handleChange} />
+      </div>
+
     );
   }
 }
