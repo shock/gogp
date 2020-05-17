@@ -1,29 +1,23 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { updateField } from '../../state/actions/field_actions';
-
+// import { updateField } from '../../state/actions/field_actions';
+import { NumEntry } from '../num_entry';
 
 import { FormationFormProps, FormationFormState } from './formation_form.types';
 
 class FormationFormBase extends React.Component<FormationFormProps, FormationFormState> {
   constructor(props) {
     super(props);
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentWillMount() {
-    this.props.dispatchUpdateField('initial value');
   }
 
   handleChange(event) {
-    this.props.dispatchUpdateField(event.target.value);
   }
 
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.props.value);
-    event.preventDefault();
+     alert('The form was submitted');
   }
 
   render() {
@@ -33,7 +27,9 @@ class FormationFormBase extends React.Component<FormationFormProps, FormationFor
           <legend>test</legend>
           <label>
             Value:
-            <input type="text" value={this.props.value} onChange={this.handleChange} />
+            <NumEntry key='1'/>
+            <NumEntry key='2'/>
+            <NumEntry key='3'/>
           </label>
           <span>{this.props.value}</span>
           <input type="submit" value="Submit" />
@@ -43,11 +39,11 @@ class FormationFormBase extends React.Component<FormationFormProps, FormationFor
   }
 }
 const mapDispatchToProps = (dispatch) => ({
-  dispatchUpdateField: (value) => dispatch(updateField(value))
+  // dispatchUpdateField: (value) => dispatch(updateField(value))
 });
 
 const mapStateToProps = (state) => ({
-  value: state.field.value
+  // value: state.field.value
 });
 
 const FormationForm = connect(mapStateToProps, mapDispatchToProps)(FormationFormBase);

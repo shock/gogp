@@ -23,7 +23,7 @@ function App() {
         </header> */}
         <Layout title="Form Calc Prototype">
           <div id="form-wrapper">
-            <FormationForm value='change me now' />
+            <FormationForm />
           </div>
         </Layout>
       </div>
