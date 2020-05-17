@@ -27,9 +27,10 @@ class FormationFormBase extends React.Component<FormationFormProps, FormationFor
           <legend>test</legend>
           <label>
             Value:
-            <NumEntry key='1'/>
-            <NumEntry key='2'/>
-            <NumEntry key='3'/>
+            <NumEntry id={1} />
+            <NumEntry id={2} />
+            <NumEntry id={3} />
+            <NumEntry id={1} />
           </label>
           <span>{this.props.value}</span>
           <input type="submit" value="Submit" />

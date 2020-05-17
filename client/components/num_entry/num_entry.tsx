@@ -13,7 +13,8 @@ class NumEntryBase extends React.Component<NumEntryProps, NumEntryState> {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
+    console.log(`NumEntry Mounted with id: ${this.props.id}`);
     this.updateValue('0');
   }
 
@@ -27,7 +28,7 @@ class NumEntryBase extends React.Component<NumEntryProps, NumEntryState> {
 
     }
     if( isNaN(val) ) { val = 0; }
-    this.props.dispatchUpdateField(''+val);
+    this.props.dispatchUpdateField(this.props.id, ''+val);
   }
 
   handleSubmit(event) {
@@ -36,16 +37,17 @@ class NumEntryBase extends React.Component<NumEntryProps, NumEntryState> {
   }
 
   render() {
+    console.log(this.props);
     return (
       <div className="NumEntry">
-        <input type="text" value={this.props.value} onChange={this.handleChange} />
+        <input type="text" value={this.props.value[this.props.id]} onChange={this.handleChange} />
       </div>
 
     );
   }
 }
 const mapDispatchToProps = (dispatch) => ({
-  dispatchUpdateField: (value) => dispatch(updateField(value))
+  dispatchUpdateField: (id,value) => dispatch(updateField(id,value))
 });
 
 const mapStateToProps = (state) => ({
