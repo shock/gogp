@@ -14,7 +14,6 @@ class FormationFormBase extends React.Component<FormationFormProps, FormationFor
   }
 
   componentWillMount() {
-    console.log("FormationForm Mounted!");
     this.props.dispatchUpdateField('initial value');
   }
 
@@ -47,12 +46,9 @@ const mapDispatchToProps = (dispatch) => ({
   dispatchUpdateField: (value) => dispatch(updateField(value))
 });
 
-const mapStateToProps = function (state) {
-  // debugger
-  return {
-    value: state.field.value
-  }
-}
+const mapStateToProps = (state) => ({
+  value: state.field.value
+});
 
 const FormationForm = connect(mapStateToProps, mapDispatchToProps)(FormationFormBase);
 export { FormationForm };
