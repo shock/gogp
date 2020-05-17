@@ -27,12 +27,11 @@ class FormationFormBase extends React.Component<FormationFormProps, FormationFor
           <legend>test</legend>
           <label>
             Value:
-            <NumEntry id={'1'} />
-            <NumEntry id={'2'} />
-            <NumEntry id={'3'} />
-            <NumEntry id={'1'} />
+            <NumEntry id={'1'} value={this.props.value}/>
+            <NumEntry id={'2'} value={this.props.value}/>
+            <NumEntry id={'3'} value={this.props.value}/>
+            <NumEntry id={'4'} value={this.props.value}/>
           </label>
-          <span>{this.props.value}</span>
           <input type="submit" value="Submit" />
         </fieldset>
       </form>
@@ -44,7 +43,7 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const mapStateToProps = (state) => ({
-  // value: state.field.value
+  value: state.field.value
 });
 
 const FormationForm = connect(mapStateToProps, mapDispatchToProps)(FormationFormBase);
