@@ -38,13 +38,6 @@ function isWatchingHappyStylesPlugins(loaders) {
   return loaders;
 }
 
-let cleanerConfig = {};
-if (!config.enabled.watcher ) {
-  cleanerConfig.cleanOnceBeforeBuildPatterns = [config.paths.dist];
-} else {
-  cleanerConfig.cleanOnceBeforeBuildPatterns = [];
-}
-
 let webpackConfig = {
   context: config.paths.root,
 
@@ -148,7 +141,13 @@ let webpackConfig = {
       workers: ForkTsCheckerPlugin.ONE_CPU,
     }),
     // Removes files from public/dist directory before build
-    new CleanWebpackPlugin( cleanerConfig ),
+    new CleanWebpackPlugin({
+      cleanBeforeEveryBuildPatterns: [config.paths.dist]
+    }),
+    // new CleanWebpackPlugin([config.paths.dist], {
+    //   root: config.paths.root,
+    //   verbose: false,
+    // }),
     new HappyPack({
       id: 'ts',
       threadPool: happyThreadPool,
@@ -233,25 +232,25 @@ let webpackConfig = {
       ]),
     }),
     // Copies all the images from the assets folder and moves them to the public folder
-    new CopyWebpackPlugin(
-      [
-        {
-          context: join(config.paths.assets, 'images'),
-          from: '**/*',
-          to: join(config.paths.root, 'public/dist/images'),
-          flatten: true,
-        },
-        {
-          context: join(config.paths.assets, 'fonts'),
-          from: '**/*',
-          to: join(config.paths.root, 'public/dist/fonts'),
-          flatten: true,
-        },
-      ],
-      {
-        copyUnmodified: true,
-      },
-    ),
+    // new CopyWebpackPlugin(
+    //   {
+    //     patterns: [
+    //       {
+    //         context: join(config.paths.assets, 'images'),
+    //         from: '**/*',
+    //         to: join(config.paths.root, 'public/dist/images'),
+    //         flatten: true,
+    //       },
+    //       {
+    //         context: join(config.paths.assets, 'fonts'),
+    //         from: '**/*',
+    //         to: join(config.paths.root, 'public/dist/fonts'),
+    //         flatten: true,
+    //       },
+    //     ],
+    //     options: { concurrency: 100 },
+    //   }
+    // ),
     // Extracts the css from webpack and saves it as a file in public/dist
     new MiniCssExtractPlugin({
       filename: !config.env.production ? 'styles/[name].css' : 'styles/[name].[hash].css',
