@@ -1,1 +1,1 @@
-export const UPDATE_FIELD='UPDATE_FIELD';
+export const UPDATE_NUM_ENTRY='UPDATE_NUM_ENTRY';

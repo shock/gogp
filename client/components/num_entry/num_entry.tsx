@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { updateField } from '../../state/actions/field_actions';
+import { updateNumEntry } from '../../state/actions/num_entry_actions';
 
 
 import { NumEntryProps, NumEntryState } from './types';
@@ -37,7 +37,7 @@ class NumEntryBase extends React.Component<NumEntryProps, NumEntryState> {
   }
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <div className="NumEntry">
         <input type="text" value={this.props.value[this.props.id]} onChange={this.handleChange} />
@@ -47,7 +47,7 @@ class NumEntryBase extends React.Component<NumEntryProps, NumEntryState> {
   }
 }
 const mapDispatchToProps = (dispatch) => ({
-  dispatchUpdateField: (id,value) => dispatch(updateField(id,value))
+  dispatchUpdateField: (id,value) => dispatch(updateNumEntry(id,value))
 });
 
 const mapStateToProps = (state) => ({

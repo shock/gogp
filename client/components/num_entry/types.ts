@@ -3,9 +3,9 @@
  */
 
 export interface NumEntryProps {
-  id: number;
+  id: string;
   value: string;
-  dispatchUpdateField(id: number, value: string);
+  dispatchUpdateField(id: string, value: string);
 }
 
 export interface NumEntryState {

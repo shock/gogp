@@ -1,4 +1,4 @@
-import { UPDATE_FIELD } from '../actions/types';
+import { UPDATE_NUM_ENTRY } from '../actions/types';
 import { merge } from 'lodash';
 import { isCompositeComponent } from 'react-dom/test-utils';
 
@@ -8,7 +8,7 @@ const initialState = {
 
 const fieldReducer = function(state = initialState, action) {
   switch (action.type) {
-    case UPDATE_FIELD:
+    case UPDATE_NUM_ENTRY:
       console.log("STATE:");
       console.log(state);
       console.log("ACTION:");

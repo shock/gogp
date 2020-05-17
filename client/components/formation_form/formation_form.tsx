@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-// import { updateField } from '../../state/actions/field_actions';
+// import { updateNumEntry } from '../../state/actions/field_actions';
 import { NumEntry } from '../num_entry';
 
 import { FormationFormProps, FormationFormState } from './formation_form.types';
@@ -27,10 +27,10 @@ class FormationFormBase extends React.Component<FormationFormProps, FormationFor
           <legend>test</legend>
           <label>
             Value:
-            <NumEntry id={1} />
-            <NumEntry id={2} />
-            <NumEntry id={3} />
-            <NumEntry id={1} />
+            <NumEntry id={'1'} />
+            <NumEntry id={'2'} />
+            <NumEntry id={'3'} />
+            <NumEntry id={'1'} />
           </label>
           <span>{this.props.value}</span>
           <input type="submit" value="Submit" />
@@ -40,7 +40,7 @@ class FormationFormBase extends React.Component<FormationFormProps, FormationFor
   }
 }
 const mapDispatchToProps = (dispatch) => ({
-  // dispatchUpdateField: (value) => dispatch(updateField(value))
+  // dispatchUpdateField: (value) => dispatch(updateNumEntry(value))
 });
 
 const mapStateToProps = (state) => ({
