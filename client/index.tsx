@@ -4,7 +4,8 @@
 import 'bootstrap';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { FormationForm } from './components/formation_form';
+import './assets/styles/main.scss';
+import App from './App';
 
 // import { Store } from 'redux';
 // import 'simplebar';
@@ -24,7 +25,7 @@ import { FormationForm } from './components/formation_form';
 // );
 ReactDOM.render(
   <React.StrictMode>
-    <FormationForm value='change me now' />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
