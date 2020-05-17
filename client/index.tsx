@@ -24,7 +24,7 @@ import { FormationForm } from './components/formation_form';
 // );
 ReactDOM.render(
   <React.StrictMode>
-    <FormationForm value='change it yo' />,
+    <FormationForm value='change me now' />
   </React.StrictMode>,
   document.getElementById('root')
 );
