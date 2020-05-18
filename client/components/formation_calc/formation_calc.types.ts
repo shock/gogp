@@ -3,9 +3,12 @@
  */
 
 export interface FormationFormProps {
-  value?: string;
+  value?: Object;
+  initMarchCapacity: number;
+  initName: string;
 }
 
 export interface FormationFormState {
-  value: string;
+  marchCapacity: number;
+  name: string;
 }

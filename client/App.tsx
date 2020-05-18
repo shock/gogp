@@ -22,7 +22,7 @@ function App() {
           </a>
         </header> */}
         <Layout title="Form Calc Prototype">
-          <div id="form-wrapper">
+          <div id="form-calc-wrapper">
             <FormationCalc />
           </div>
         </Layout>

@@ -8,6 +8,8 @@ import { FormationFormProps, FormationFormState } from './formation_calc.types';
 class FormationFormBase extends React.Component<FormationFormProps, FormationFormState> {
   constructor(props) {
     super(props);
+    this.setState({marchCapacity: this.props.initMarchCapacity});
+    this.setState({name: this.props.initName});
   }
 
   componentWillMount() {
@@ -37,12 +39,16 @@ class FormationFormBase extends React.Component<FormationFormProps, FormationFor
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} className="FormCalc">
         <fieldset>
-          <legend>test</legend>
-          {this.fieldEntries()}
-          <input type="submit" value="Submit" />
+          <legend>March Capacity</legend>
+          <NumEntry id={'march_cap'} value='1000' label='' />
         </fieldset>
+        <fieldset>
+          <legend>Tier 12</legend>
+          {this.fieldEntries()}
+        </fieldset>
+        <input type="submit" value="Submit" />
       </form>
     );
   }
