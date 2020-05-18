@@ -31,7 +31,9 @@ const initialState = {
 
 const middleware = [thunk];
 
+// TODO: NOTE: Enabling tracing has a performance penalty
 const composeEnhancers = composeWithDevTools({ trace: true, traceLimit: 25 });
+
 export const store = createStore(
   rootReducer,
   initialState,
