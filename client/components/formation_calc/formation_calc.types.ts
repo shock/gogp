@@ -2,13 +2,14 @@
  * External dependencies
  */
 
-export interface FormationFormProps {
+export interface FormationCalcProps {
   value?: Object;
   initMarchCapacity: number;
   initName: string;
+  dispatchUpdateField(id: string, value: string);
 }
 
-export interface FormationFormState {
+export interface FormationCalcState {
   marchCapacity: number;
   name: string;
 }

@@ -2,14 +2,16 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 // import { updateNumEntry } from '../../state/actions/field_actions';
 import { NumEntry } from '../num_entry';
+import { updateNumEntry } from '../../state/actions/num_entry_actions';
 
-import { FormationFormProps, FormationFormState } from './formation_calc.types';
+import { FormationCalcProps, FormationCalcState } from './formation_calc.types';
 
-class FormationFormBase extends React.Component<FormationFormProps, FormationFormState> {
+class FormationCalcBase extends React.Component<FormationCalcProps, FormationCalcState> {
   constructor(props) {
     super(props);
     this.setState({marchCapacity: this.props.initMarchCapacity});
     this.setState({name: this.props.initName});
+    // this.props.dispatchUpdateField('march_cap', ''+1000);
   }
 
   componentWillMount() {
@@ -22,18 +24,23 @@ class FormationFormBase extends React.Component<FormationFormProps, FormationFor
      alert('The form was submitted');
   }
 
-  fieldEntries = () => {
+  createNumEntry(id, label=undefined) {
+    const value = this.props.value[''+id];
+    const strId = ''+id;
+    if( label === undefined ) { label = strId }
+    return (
+      <NumEntry key={strId} id={strId} value={value} label={label}/>
+    )
+  }
+
+  tierDefEntries = () => {
     let ids = [
       'Infantry',
       'Cavalry',
-      'Distance'
-    ].map( (id) => (''+id) );
+      'Distance',
+    ];
     return ids.map( (id) => {
-      const value = this.props.value[id+''];
-      const strId = ''+id;
-      return (
-        <NumEntry id={strId} value={value} label={strId}/>
-      );
+      return this.createNumEntry(id)
     });
   }
 
@@ -42,24 +49,26 @@ class FormationFormBase extends React.Component<FormationFormProps, FormationFor
       <form onSubmit={this.handleSubmit} className="FormCalc">
         <fieldset>
           <legend>March Capacity</legend>
-          <NumEntry id={'march_cap'} value='1000' label='' />
+          {this.createNumEntry('march_cap', 'March Cap')}
         </fieldset>
         <fieldset>
           <legend>Tier 12</legend>
-          {this.fieldEntries()}
+          {this.tierDefEntries()}
+          {}
         </fieldset>
         <input type="submit" value="Submit" />
       </form>
     );
   }
 }
+
 const mapDispatchToProps = (dispatch) => ({
-  // dispatchUpdateField: (value) => dispatch(updateNumEntry(value))
+  dispatchUpdateField: (id,value) => dispatch(updateNumEntry(id,value))
 });
 
 const mapStateToProps = (state) => ({
   value: state.field.value
 });
 
-const FormationCalc = connect(mapStateToProps, mapDispatchToProps)(FormationFormBase);
+const FormationCalc = connect(mapStateToProps, mapDispatchToProps)(FormationCalcBase);
 export { FormationCalc };
