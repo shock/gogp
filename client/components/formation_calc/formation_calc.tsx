@@ -11,7 +11,6 @@ class FormationCalcBase extends React.Component<FormationCalcProps, FormationCal
     super(props);
     this.setState({marchCapacity: this.props.initMarchCapacity});
     this.setState({name: this.props.initName});
-    // this.props.dispatchUpdateField('march_cap', ''+1000);
   }
 
   componentWillMount() {
@@ -63,12 +62,12 @@ class FormationCalcBase extends React.Component<FormationCalcProps, FormationCal
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  dispatchUpdateField: (id,value) => dispatch(updateNumEntry(id,value))
+  // dispatchUpdateField: (id,value) => dispatch(updateNumEntry(id,value))
 });
 
 const mapStateToProps = (state) => ({
   value: state.field.value
 });
 
-const FormationCalc = connect(mapStateToProps, mapDispatchToProps)(FormationCalcBase);
+const FormationCalc = connect(mapStateToProps, null)(FormationCalcBase);
 export { FormationCalc };
