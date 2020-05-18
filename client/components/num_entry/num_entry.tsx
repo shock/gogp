@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { updateNumEntry } from '../../state/actions/num_entry_actions';
 
 
-import { NumEntryProps, NumEntryState } from './types';
+import { NumEntryProps, NumEntryState } from './num_entry.types';
 
 class NumEntryBase extends React.Component<NumEntryProps, NumEntryState> {
   constructor(props) {
@@ -11,6 +11,8 @@ class NumEntryBase extends React.Component<NumEntryProps, NumEntryState> {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDecrement = this.handleDecrement.bind(this);
+    this.handleIncrement = this.handleIncrement.bind(this);
   }
 
   componentDidMount() {
@@ -22,13 +24,26 @@ class NumEntryBase extends React.Component<NumEntryProps, NumEntryState> {
     this.updateValue(event.target.value);
   }
 
-  updateValue(value) {
+  handleDecrement(event) {
+    this.updateValue(this.normalizeValue(this.props.value)-1);
+  }
+
+  handleIncrement(event) {
+    this.updateValue(this.normalizeValue(this.props.value)+1);
+  }
+
+  normalizeValue(value) {
     let val = parseFloat(value);
     if (this.state && this.state.percentage) {
 
     }
     if( isNaN(val) ) { val = 0; }
-    this.props.dispatchUpdateField(this.props.id, ''+val);
+    if( val < 0 ) { val = 0; }
+    return val;
+  }
+
+  updateValue(value) {
+    this.props.dispatchUpdateField(this.props.id, ''+this.normalizeValue(value));
   }
 
   handleSubmit(event) {
@@ -40,7 +55,10 @@ class NumEntryBase extends React.Component<NumEntryProps, NumEntryState> {
     // console.log(this.props);
     return (
       <div className="NumEntry">
+        <label>{this.props.label}</label>
+        <span className="button" onClick={this.handleDecrement}>-</span>
         <input type="text" value={this.props.value} onChange={this.handleChange} />
+        <span className="button" onClick={this.handleIncrement}>+</span>
       </div>
 
     );

@@ -21,11 +21,16 @@ class FormationFormBase extends React.Component<FormationFormProps, FormationFor
   }
 
   fieldEntries = () => {
-    let ids = [1,2,3,1].map( (id) => (''+id) );
+    let ids = [
+      'Infantry',
+      'Cavalry',
+      'Distance'
+    ].map( (id) => (''+id) );
     return ids.map( (id) => {
       const value = this.props.value[id+''];
+      const strId = ''+id;
       return (
-        <NumEntry id={id+''} value={value} />
+        <NumEntry id={strId} value={value} label={strId}/>
       );
     });
   }
@@ -35,10 +40,7 @@ class FormationFormBase extends React.Component<FormationFormProps, FormationFor
       <form onSubmit={this.handleSubmit}>
         <fieldset>
           <legend>test</legend>
-          <label>
-            Value:
-            {this.fieldEntries()}
-          </label>
+          {this.fieldEntries()}
           <input type="submit" value="Submit" />
         </fieldset>
       </form>

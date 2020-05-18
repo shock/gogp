@@ -1,4 +1,4 @@
-import { UPDATE_NUM_ENTRY } from '../actions/types';
+import { UPDATE_NUM_ENTRY } from '../actions/action_types';
 import { merge } from 'lodash';
 import { isCompositeComponent } from 'react-dom/test-utils';
 
