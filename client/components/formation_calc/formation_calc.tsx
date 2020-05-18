@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 // import { updateNumEntry } from '../../state/actions/field_actions';
 import { NumEntry } from '../num_entry';
 
-import { FormationFormProps, FormationFormState } from './formation_form.types';
+import { FormationFormProps, FormationFormState } from './formation_calc.types';
 
 class FormationFormBase extends React.Component<FormationFormProps, FormationFormState> {
   constructor(props) {
@@ -55,5 +55,5 @@ const mapStateToProps = (state) => ({
   value: state.field.value
 });
 
-const FormationForm = connect(mapStateToProps, mapDispatchToProps)(FormationFormBase);
-export { FormationForm };
+const FormationCalc = connect(mapStateToProps, mapDispatchToProps)(FormationFormBase);
+export { FormationCalc };

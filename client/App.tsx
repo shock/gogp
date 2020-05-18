@@ -1,7 +1,7 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import { FormationForm } from './components/formation_form';
+import { FormationCalc } from './components/formation_calc';
 import { Layout } from './components/layout';
 import { Provider } from 'react-redux';
 import { store } from './state';
@@ -23,7 +23,7 @@ function App() {
         </header> */}
         <Layout title="Form Calc Prototype">
           <div id="form-wrapper">
-            <FormationForm />
+            <FormationCalc />
           </div>
         </Layout>
       </div>
