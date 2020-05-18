@@ -40,7 +40,7 @@ class NumEntryBase extends React.Component<NumEntryProps, NumEntryState> {
     // console.log(this.props);
     return (
       <div className="NumEntry">
-        <input type="text" value={this.props.value[this.props.id]} onChange={this.handleChange} />
+        <input type="text" value={this.props.value} onChange={this.handleChange} />
       </div>
 
     );
@@ -51,7 +51,6 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const mapStateToProps = (state) => ({
-  value: state.field.value
 });
 
 const NumEntry = connect(mapStateToProps, mapDispatchToProps)(NumEntryBase);

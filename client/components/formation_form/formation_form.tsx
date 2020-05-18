@@ -20,6 +20,16 @@ class FormationFormBase extends React.Component<FormationFormProps, FormationFor
      alert('The form was submitted');
   }
 
+  fieldEntries = () => {
+    let ids = [1,2,3,1].map( (id) => (''+id) );
+    return ids.map( (id) => {
+      const value = this.props.value[id+''];
+      return (
+        <NumEntry id={id+''} value={value} />
+      );
+    });
+  }
+
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
@@ -27,10 +37,7 @@ class FormationFormBase extends React.Component<FormationFormProps, FormationFor
           <legend>test</legend>
           <label>
             Value:
-            <NumEntry id={'1'} value={this.props.value}/>
-            <NumEntry id={'2'} value={this.props.value}/>
-            <NumEntry id={'3'} value={this.props.value}/>
-            <NumEntry id={'4'} value={this.props.value}/>
+            {this.fieldEntries()}
           </label>
           <input type="submit" value="Submit" />
         </fieldset>
