@@ -68,8 +68,5 @@ const mapDispatchToProps = (dispatch) => ({
   dispatchUpdateField: (id,value) => dispatch(updateNumEntry(id,value))
 });
 
-const mapStateToProps = (state) => ({
-});
-
-const NumEntry = connect(mapStateToProps, mapDispatchToProps)(NumEntryBase);
+const NumEntry = connect(null, mapDispatchToProps)(NumEntryBase);
 export { NumEntry };
