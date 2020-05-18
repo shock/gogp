@@ -17,7 +17,7 @@ class NumEntryBase extends React.Component<NumEntryProps, NumEntryState> {
 
   componentDidMount() {
     console.log(`NumEntry Mounted with id: ${this.props.id}`);
-    this.updateValue('0');
+    // this.updateValue('0');
   }
 
   handleChange(event) {
