@@ -11,14 +11,27 @@ const middleware = [thunk];
 export const store = createStore( rootReducer, initialState, applyMiddleware(...middleware));
 
 const marchCap = 1000;
-const payload = {
-  id: 'march_cap',
-  value: marchCap
-}
+const payloads = [
+  {
+    id: 'march_cap',
+    value: marchCap
+  },
+  {
+    id: 'Infantry',
+    value: marchCap/2
+  },
+  {
+    id: 'Distance',
+    value: marchCap/2
+  },
+];
 
 setTimeout(() => {
-  store.dispatch({
-    type: UPDATE_NUM_ENTRY,
-    payload: payload
+  payloads.map( (payload) => {
+    store.dispatch({
+      type: UPDATE_NUM_ENTRY,
+      payload: payload
+    });
+    return payload;
   });
 }, 500);
